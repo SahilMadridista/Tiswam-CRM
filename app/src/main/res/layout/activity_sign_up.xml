@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity"
+    android:id="@+id/parent"
     android:background="@drawable/splash">
 
     <TextView
@@ -252,7 +253,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/ambit_bold"
-            android:textColor="@color/yellow">
+            android:textColor="@color/white">
 
         </TextView>
 
@@ -268,7 +269,7 @@
             android:theme="@style/pb"
             android:hint="@string/typename"
             android:textColorHint="@color/extra_light_grey"
-            android:textColor="@color/white"
+            android:textColor="@color/dull_yellow"
             android:inputType="textCapWords"
             android:background="@android:color/transparent"
             android:layout_marginStart="16dp"
@@ -286,7 +287,7 @@
             android:layout_below="@id/name_et"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/ambit_bold"
-            android:textColor="@color/yellow">
+            android:textColor="@color/white">
 
         </TextView>
 
@@ -295,6 +296,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/phone_head"
             android:textSize="25sp"
+            android:maxLength="10"
             android:id="@+id/phone_et"
             android:fontFamily="@font/ambit_regular"
             android:paddingTop="15dp"
@@ -302,7 +304,7 @@
             android:theme="@style/pb"
             android:hint="@string/typephone"
             android:textColorHint="@color/extra_light_grey"
-            android:textColor="@color/white"
+            android:textColor="@color/dull_yellow"
             android:inputType="phone"
             android:digits="0123456789"
             android:background="@android:color/transparent"
@@ -321,7 +323,7 @@
             android:layout_below="@id/phone_et"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/ambit_bold"
-            android:textColor="@color/yellow">
+            android:textColor="@color/white">
 
         </TextView>
 
@@ -337,7 +339,7 @@
             android:hint="@string/typeemail"
             android:theme="@style/pb"
             android:textColorHint="@color/extra_light_grey"
-            android:textColor="@color/white"
+            android:textColor="@color/dull_yellow"
             android:inputType="textEmailAddress"
             android:background="@android:color/transparent"
             android:layout_marginStart="16dp"
@@ -355,7 +357,7 @@
             android:layout_below="@id/email_et"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/ambit_bold"
-            android:textColor="@color/yellow">
+            android:textColor="@color/white">
 
         </TextView>
 
@@ -371,7 +373,7 @@
             android:fontFamily="@font/ambit_regular"
             android:theme="@style/pb"
             android:textColorHint="@color/extra_light_grey"
-            android:textColor="@color/white"
+            android:textColor="@color/dull_yellow"
             android:inputType="textPassword"
             android:background="@android:color/transparent"
             android:layout_marginStart="16dp"
@@ -397,6 +399,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/next"
+            android:id="@+id/next_button"
             android:background="@drawable/next_btn_bg"
             android:textAllCaps="false"
             android:drawablePadding="10dp"
