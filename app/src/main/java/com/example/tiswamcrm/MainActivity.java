@@ -1,52 +1,59 @@
 package com.example.tiswamcrm;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 
 import android.content.Intent;
 import android.graphics.Paint;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.transition.Fade;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
+   @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_main);
 
-      /*final TextView LoadingText = findViewById(R.id.loading_text);
+      final ImageView img = findViewById(R.id.imageView);
 
-      new Handler().postDelayed(new Runnable() {
-         @Override
-         public void run() {
-            LoadingText.setText(R.string.loading_);
-         }
-      },500);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+         getWindow().getSharedElementEnterTransition().setDuration(1000);
+         getWindow().getSharedElementReturnTransition().setDuration(1000)
+                 .setInterpolator(new DecelerateInterpolator());
+      }
 
-      new Handler().postDelayed(new Runnable() {
-         @Override
-         public void run() {
-            LoadingText.setText(R.string.loading__);
-         }
-      },1000);
-
-      new Handler().postDelayed(new Runnable() {
-         @Override
-         public void run() {
-            LoadingText.setText(R.string.loading____);
-         }
-      },1500);*/
 
       TextView CreateAccountText = findViewById(R.id.create_acc_text);
       CreateAccountText.setPaintFlags(CreateAccountText.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
       CreateAccountText.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
-            startActivity(new Intent(getApplicationContext(),SignUpActivity.class));
+            Fade fade = new Fade();
+            View decor = getWindow().getDecorView();
+            fade.excludeTarget(decor.findViewById(R.id.action_bar_container), true);
+            fade.excludeTarget(android.R.id.statusBarBackground, true);
+            fade.excludeTarget(android.R.id.navigationBarBackground, true);
+            getWindow().setEnterTransition(fade);
+            getWindow().setExitTransition(fade);
+            Intent intent = new Intent(getApplicationContext(),SignUpActivity.class);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    MainActivity.this, img, Objects.requireNonNull(ViewCompat.getTransitionName(img)));
+            startActivity(intent, options.toBundle());
+
          }
       });
 
@@ -54,10 +61,15 @@ public class MainActivity extends AppCompatActivity {
       button.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
-            LoginBottomSheet bottomSheetDialog = new LoginBottomSheet();
-            bottomSheetDialog.show(getSupportFragmentManager(), "exampleBottomSheet");
+
+
+            /*LoginBottomSheet bottomSheetDialog = new LoginBottomSheet();
+            bottomSheetDialog.show(getSupportFragmentManager(), "exampleBottomSheet");*/
+
+
          }
       });
+
 
    }
 

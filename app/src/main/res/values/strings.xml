@@ -31,4 +31,18 @@
 
     <string name="open_login_page_for">Open login page for</string>
 
+    <string name="mynameis">My name is</string>
+    <string name="typename">Type your name</string>
+
+    <string name="myphoneis">My phone is</string>
+    <string name="typephone">Type your phone</string>
+
+    <string name="myemailis">My email is</string>
+    <string name="typeemail">Type your email</string>
+
+    <string name="mypassis">My password is</string>
+    <string name="typepass">Type your password</string>
+
+    <string name="showpass">Show password</string>
+
 </resources>
