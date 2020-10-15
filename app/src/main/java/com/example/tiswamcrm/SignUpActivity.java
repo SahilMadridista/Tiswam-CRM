@@ -2,6 +2,9 @@ package com.example.tiswamcrm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -82,7 +85,13 @@ public class SignUpActivity extends AppCompatActivity {
             return;
         }
 
-        Toast.makeText(getApplicationContext(),"Success",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getApplicationContext(),ProfilePhotoActivity.class);
+        intent.putExtra("name",Name.getText().toString().trim());
+        intent.putExtra("phone",Phone.getText().toString().trim());
+        intent.putExtra("email",Email.getText().toString().trim());
+        intent.putExtra("password",Password.getText().toString().trim());
+        startActivity(intent);
+
 
 
     }
@@ -91,6 +100,37 @@ public class SignUpActivity extends AppCompatActivity {
 
         Snackbar snackbar = Snackbar.make(Parent,snack,Snackbar.LENGTH_LONG);
         snackbar.show();
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you really want to exit ?").setCancelable(false)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        SignUpActivity.super.onBackPressed();
+                        finish();
+
+                    }
+                })
+
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();*/
+
+        SignUpActivity.super.onBackPressed();
+        finish();
+
 
     }
 

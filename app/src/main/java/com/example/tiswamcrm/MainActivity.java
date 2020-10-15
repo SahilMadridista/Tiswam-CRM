@@ -2,9 +2,12 @@ package com.example.tiswamcrm;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.ViewCompat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Build;
@@ -62,15 +65,53 @@ public class MainActivity extends AppCompatActivity {
          @Override
          public void onClick(View view) {
 
-
-            /*LoginBottomSheet bottomSheetDialog = new LoginBottomSheet();
-            bottomSheetDialog.show(getSupportFragmentManager(), "exampleBottomSheet");*/
-
+            Fade fade = new Fade();
+            View decor = getWindow().getDecorView();
+            fade.excludeTarget(decor.findViewById(R.id.action_bar_container), true);
+            fade.excludeTarget(android.R.id.statusBarBackground, true);
+            fade.excludeTarget(android.R.id.navigationBarBackground, true);
+            getWindow().setEnterTransition(fade);
+            getWindow().setExitTransition(fade);
+            Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    MainActivity.this, img, Objects.requireNonNull(ViewCompat.getTransitionName(img)));
+            startActivity(intent, options.toBundle());
 
          }
       });
 
 
    }
+
+
+   @Override
+   public void onBackPressed() {
+
+      AlertDialog.Builder builder = new AlertDialog.Builder(this);
+      builder.setMessage("Do you really want to exit ?").setCancelable(false)
+              .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                 @Override
+                 public void onClick(DialogInterface dialogInterface, int i) {
+
+                    MainActivity.super.onBackPressed();
+                    finish();
+
+                 }
+              })
+
+              .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                 @Override
+                 public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.cancel();
+                 }
+              });
+
+      AlertDialog alertDialog = builder.create();
+      alertDialog.show();
+
+
+   }
+
+
 
 }

@@ -5,13 +5,45 @@
     <string name="tech_mark">TECH MARK</string>
     <string name="digi_sol">Digital Solutions</string>
 
-    <string name="welcome">Welcome to</string>
+    <string name="welcome">Hey Admin! Welcome to</string>
 
     <string name="loading">Loading</string>
     <string name="loading.">Loading.</string>
     <string name="loading..">Loading..</string>
     <string name="loading...." tools:ignore="TypographyEllipsis">Loading...</string>
 
+    <string name="admin">Admin</string>
+
+    <string name="employee">Employee</string>
+    <string name="bde">Business Development Executive</string>
+    <string name="bdm">Business Development Manager</string>
+    <string name="it">IT Team</string>
+    <string name="login">LOGIN WITH EMAIL</string>
+
+    <string name="create_account">Create account</string>
+    <string name="log">Login</string>
+    <string name="logging" tools:ignore="TypographyEllipsis">Logging in...</string>
+
+    <string name="mynameis">My name is</string>
+
+    <string name="typename">Type your name</string>
+    <string name="myphoneis">My phone is</string>
+
+    <string name="typephone">Type your phone</string>
+    <string name="myemailis">My email is</string>
+
+    <string name="typeemail">Type your email</string>
+    <string name="mypassis">My password is</string>
+
+    <string name="typepass">Type your password</string>
+    <string name="showpass">Show password</string>
+
+    <string name="welcome_back">Welcome back Admin !</string>
+
+    <string name="upload_picture">Upload your profile picture</string>
+
+    <string name="choose_image">Choose image</string>
+    <string name="done">Create account</string>
     <string-array name="posts">
         <item>Select your team</item>
         <item>Admin</item>
@@ -19,30 +51,5 @@
         <item>Business Development Manager</item>
         <item>IT Team</item>
     </string-array>
-
-    <string name="admin">Admin</string>
-    <string name="employee">Employee</string>
-    <string name="bde">Business Development Executive</string>
-    <string name="bdm">Business Development Manager</string>
-    <string name="it">IT Team</string>
-
-    <string name="login">LOGIN WITH EMAIL</string>
-    <string name="create_account">Create account</string>
-
-    <string name="open_login_page_for">Open login page for</string>
-
-    <string name="mynameis">My name is</string>
-    <string name="typename">Type your name</string>
-
-    <string name="myphoneis">My phone is</string>
-    <string name="typephone">Type your phone</string>
-
-    <string name="myemailis">My email is</string>
-    <string name="typeemail">Type your email</string>
-
-    <string name="mypassis">My password is</string>
-    <string name="typepass">Type your password</string>
-
-    <string name="showpass">Show password</string>
 
 </resources>

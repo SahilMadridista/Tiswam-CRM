@@ -11,4 +11,15 @@
         <item name="colorAccent">@color/white</item>
     </style>
 
+    <style name="fab" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/dull_yellow</item>
+    </style>
+
+    <style name="AppTheme.Transparent" parent="AppTheme">
+        <!-- Style for the second activity -->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
 </resources>
