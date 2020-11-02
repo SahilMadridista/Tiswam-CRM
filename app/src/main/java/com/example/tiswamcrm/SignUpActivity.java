@@ -6,11 +6,16 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -36,6 +41,19 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkDetails();
+            }
+        });
+
+        CheckBox ShowPass = findViewById(R.id.show_pass_checkbox);
+
+        ShowPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    Password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    Password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
             }
         });
 
@@ -103,10 +121,10 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
 
-        /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Do you really want to exit ?").setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -126,12 +144,8 @@ public class SignUpActivity extends AppCompatActivity {
                 });
 
         AlertDialog alertDialog = builder.create();
-        alertDialog.show();*/
+        alertDialog.show();
 
-        SignUpActivity.super.onBackPressed();
-        finish();
-
-
-    }
+    }*/
 
 }

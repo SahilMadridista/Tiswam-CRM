@@ -8,9 +8,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -50,6 +54,19 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkDetails();
+            }
+        });
+
+        CheckBox ShowPass = findViewById(R.id.show_pass_check);
+
+        ShowPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    PasswordET.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    PasswordET.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
             }
         });
 
@@ -168,10 +185,10 @@ public class LoginActivity extends AppCompatActivity {
         snackbar.show();
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
 
-        /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Do you really want to exit ?").setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -191,12 +208,9 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
         AlertDialog alertDialog = builder.create();
-        alertDialog.show();*/
-
-        LoginActivity.super.onBackPressed();
-        finish();
+        alertDialog.show();
 
 
-    }
+    }*/
 
 }

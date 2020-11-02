@@ -14,7 +14,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:scaleX="2"
         android:scaleY="2"
         android:src="@drawable/logo_blue"
@@ -117,17 +117,6 @@
         android:layout_marginTop="30dp">
 
     </ProgressBar>
-
-
-
-
-   <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/bottom_layout_bg">
-
-    </RelativeLayout>-->
 
 
 </RelativeLayout>

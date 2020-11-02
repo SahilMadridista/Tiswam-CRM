@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
@@ -32,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
       setContentView(R.layout.activity_main);
 
       final ImageView img = findViewById(R.id.imageView);
+      TextView one = findViewById(R.id.textView);
+      TextView two = findViewById(R.id.textView2);
+
+      img.animate().alpha(1).setDuration(1000);
+      one.animate().alpha(1).setDuration(1000);
+      two.animate().alpha(1).setDuration(1000);
 
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
          getWindow().getSharedElementEnterTransition().setDuration(1000);
@@ -39,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
                  .setInterpolator(new DecelerateInterpolator());
       }
 
-
-      TextView CreateAccountText = findViewById(R.id.create_acc_text);
+      final TextView CreateAccountText = findViewById(R.id.create_acc_text);
       CreateAccountText.setPaintFlags(CreateAccountText.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
       CreateAccountText.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -60,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
          }
       });
 
-      Button button = findViewById(R.id.button);
+      final Button button = findViewById(R.id.button);
       button.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
@@ -79,6 +85,24 @@ public class MainActivity extends AppCompatActivity {
 
          }
       });
+
+      SharedPreferences preferences = getSharedPreferences("MyPref", MODE_PRIVATE);
+      final int loginStatus = preferences.getInt("login", SharedPrefConsts.NO_LOGIN);
+
+      new Handler().postDelayed(new Runnable() {
+         @Override
+         public void run() {
+
+            if(loginStatus == SharedPrefConsts.USER_LOGIN){
+               Intent i = new Intent(getApplicationContext(),HomePage.class);
+               startActivity(i);
+               finish();
+            }else {
+               button.animate().alpha(1).setDuration(1000);
+               CreateAccountText.animate().alpha(1).setDuration(1000);
+            }
+         }
+      }, 1000);
 
 
    }
