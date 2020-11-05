@@ -3,9 +3,12 @@ package com.example.tiswamcrm;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +22,7 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class LeadDetailsWithOutBDMActivity extends AppCompatActivity {
 
@@ -26,6 +30,7 @@ public class LeadDetailsWithOutBDMActivity extends AppCompatActivity {
     TextView MeetingTime, BDEName, BDEEmail, BDEPhone;
     Spinner BDMSpinner;
     FirebaseFirestore firebaseFirestore;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +51,106 @@ public class LeadDetailsWithOutBDMActivity extends AppCompatActivity {
         BDEPhone = findViewById(R.id.bde_phone_text);
         BDMSpinner = findViewById(R.id.bdm_name_spinner);
 
+        Intent i = getIntent();
+
+        final String id = i.getStringExtra("id");
+        String business = i.getStringExtra("org");
+        String address = i.getStringExtra("address");
+        String name = i.getStringExtra("name");
+        String phone = i.getStringExtra("phone");
+        String email = i.getStringExtra("email");
+        String date = i.getStringExtra("date");
+        String time = i.getStringExtra("time");
+        String bde_name = i.getStringExtra("bde_name");
+        String bde_phone = i.getStringExtra("bde_phone");
+        String bde_email = i.getStringExtra("bde_email");
+
+        BusinessName.setText(business);
+        BusinessAddress.setText(address);
+        LeadName.setText(name);
+        LeadEmail.setText(email);
+        LeadPhone.setText(phone);
+        MeetingDate.setText(date);
+        MeetingTime.setText(time);
+        BDEName.setText(bde_name);
+        BDEPhone.setText(bde_phone);
+        BDEEmail.setText(bde_email);
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.loading, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         BDMSpinner.setAdapter(adapter);
 
         loadBDM();
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+
+        Button Assignment = findViewById(R.id.assign_btn);
+        Assignment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(BDMSpinner.getSelectedItem().toString().trim().equals("Loading...")){
+                    Toast.makeText(getApplicationContext(),"Please wait for BDM list to load",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(BDMSpinner.getSelectedItem().toString().trim().equals("Select BDM")){
+                    Toast.makeText(getApplicationContext(),"Please select a BDM",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                progressDialog.setMessage("Assigning Business Development Manager...");
+                progressDialog.show();
+
+                assert id != null;
+                final DocumentReference documentReference = firebaseFirestore.collection("Leads").document(id);
+                documentReference.update("bdm",BDMSpinner.getSelectedItem().toString().trim())
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                        if(task.isSuccessful()){
+
+                            documentReference.update("bdm_assigned_status","yes")
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+
+                                    if(task.isSuccessful()){
+
+                                        progressDialog.dismiss();
+                                        Toast.makeText(getApplicationContext(),"BDM assigned",Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(),HomePage.class));
+                                        finish();
+
+                                    }
+
+                                    else{
+                                        progressDialog.dismiss();
+                                        Toast.makeText(getApplicationContext(),
+                                                Objects.requireNonNull(task.getException()).getMessage(),Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            });
+
+                        }
+
+                        else {
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(),
+                                    Objects.requireNonNull(task.getException()).getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
+
+            }
+        });
+
 
 
     }

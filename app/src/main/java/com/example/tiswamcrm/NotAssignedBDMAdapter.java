@@ -36,10 +36,48 @@ public class NotAssignedBDMAdapter extends FirestoreRecyclerAdapter<Lead,NotAssi
       holder.LeadName.setText(model.getName());
       holder.Date.setText(model.getMeeting_date());
 
+
       holder.itemView.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
-            context.startActivity(new Intent(context,LeadDetailsWithOutBDMActivity.class));
+
+            DocumentSnapshot snapshot = getSnapshots().getSnapshot(holder.getAdapterPosition());
+
+            String id = snapshot.getId();
+            String org = snapshot.getString("business_name");
+            String address = snapshot.getString("business_address");
+            String name = snapshot.getString("name");
+            String phone = snapshot.getString("phone");
+            String email = snapshot.getString("email");
+            String date = snapshot.getString("meeting_date");
+            String time = snapshot.getString("meeting_time");
+            String bde_name = snapshot.getString("bde_name");
+            String bde_email = snapshot.getString("bde_email");
+            String bde_phone = snapshot.getString("bde_phone");
+
+            /*String bdm = snapshot.getString("bdm");
+            String mode = snapshot.getString("payment_mode");
+            String total = snapshot.getString("deal_amount");
+            String advance = snapshot.getString("advance_amount");
+            String remaining = snapshot.getString("remaining_amount");*/
+
+            Intent i = new Intent(context,LeadDetailsWithOutBDMActivity.class);
+
+            i.putExtra("id",id);
+            i.putExtra("org",org);
+            i.putExtra("address",address);
+            i.putExtra("name",name);
+            i.putExtra("phone",phone);
+            i.putExtra("email",email);
+            i.putExtra("date",date);
+            i.putExtra("time",time);
+            i.putExtra("bde_name",bde_name);
+            i.putExtra("bde_phone",bde_phone);
+            i.putExtra("bde_email",bde_email);
+
+            context.startActivity(i);
+
+
          }
       });
 

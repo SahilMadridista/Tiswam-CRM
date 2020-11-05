@@ -4,26 +4,26 @@ import java.util.ArrayList;
 
 public class Lead {
 
-   String bde_name; // done
-   String bde_phone; // done
-   String bde_email; // done
+   String bde_name; // done ----
+   String bde_phone; // done ----
+   String bde_email; // done ----
 
-   String name; // done
-   String email; // done
-   String phone; // done
-   String business_name; // done
-   String business_address;  // done
-   String meeting_date;  // done
-   String meeting_time;  // done
+   String name; // done ----
+   String email; // done ----
+   String phone; // done ----
+   String business_name; // done ----
+   String business_address;  // done ----
+   String meeting_date;  // done ----
+   String meeting_time;  // done ----
 
    ArrayList<String> services_offered; // done
 
-   String bdm; // done
+   String bdm; // done ----
 
-   String deal_amount;
-   String advance_amount;
-   String remaining_amount;
-   String payment_mode;
+   String deal_amount; // done ----
+   String advance_amount; // done ----
+   String remaining_amount; // done ----
+   String payment_mode; // done ----
    String deal_status;
 
    public Lead(){
