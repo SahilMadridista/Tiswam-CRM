@@ -1,20 +1,31 @@
 package com.example.tiswamcrm;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+
+import java.util.Objects;
 
 public class HomePage extends AppCompatActivity {
 
    private FirebaseAuth firebaseAuth;
+   private FirebaseFirestore firebaseFirestore;
+   androidx.appcompat.widget.Toolbar toolbar;
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +33,79 @@ public class HomePage extends AppCompatActivity {
       setContentView(R.layout.activity_home_page);
 
       firebaseAuth = FirebaseAuth.getInstance();
+      firebaseFirestore = FirebaseFirestore.getInstance();
+      toolbar = findViewById(R.id.homepage_toolbar);
+      setSupportActionBar(toolbar);
 
-      Button SignOut = findViewById(R.id.sign_out);
-      SignOut.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
+      showLeads();
+
+
+   }
+
+   private void showLeads() {
+
+      CollectionReference collectionReference = firebaseFirestore.collection("Leads");
+      Query query = collectionReference.whereEqualTo("bdm","no");
+      FirestoreRecyclerOptions<Lead> options = new FirestoreRecyclerOptions.Builder<Lead>()
+              .setQuery(query, Lead.class)
+              .build();
+      NotAssignedBDMAdapter notAssignedBDMAdapter = new NotAssignedBDMAdapter(options);
+
+      RecyclerView recyclerView = findViewById(R.id.non_bdm_meetings_recyclerview);
+      recyclerView.setHasFixedSize(true);
+      recyclerView.setLayoutManager(new LinearLayoutManager(this));
+      recyclerView.setAdapter(notAssignedBDMAdapter);
+      notAssignedBDMAdapter.startListening();
+
+   }
+
+
+
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+      MenuInflater inflater = getMenuInflater();
+      inflater.inflate(R.menu.admin_menu,menu);
+      return super.onCreateOptionsMenu(menu);
+   }
+
+
+   @Override
+   public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+      switch (item.getItemId()) {
+
+         case R.id.profile:
+
+            // Add code here
+
+            Toast.makeText(getApplicationContext(),"Profile button clicked",Toast.LENGTH_SHORT).show();
+            break;
+
+         case R.id.meetingsByDate:
+
+            // Add code here
+
+            Toast.makeText(getApplicationContext(),"Meetings by date button clicked",Toast.LENGTH_SHORT).show();
+            break;
+
+
+         case R.id.assignedMeetings:
+
+            // Add Code here
+
+            Toast.makeText(getApplicationContext(),"Assigned meetings button clicked",Toast.LENGTH_SHORT).show();
+            break;
+
+         case R.id.staff:
+
+            // Add Code here
+
+            Toast.makeText(getApplicationContext(),"Staff button clicked",Toast.LENGTH_SHORT).show();
+            break;
+
+         case R.id.sign_out:
+
+            // Add code here
 
             SharedPreferences preferences = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
@@ -37,12 +116,14 @@ public class HomePage extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(),MainActivity.class));
             finish();
 
+         default:
+            return super.onOptionsItemSelected(item);
 
-         }
-      });
+      }
 
-
+      return true;
    }
+
 
 
 }

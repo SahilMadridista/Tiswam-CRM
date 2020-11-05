@@ -44,6 +44,49 @@
 
     <string name="choose_image">Choose image</string>
     <string name="done">Create account</string>
+    <string name="noBDMLeads">Unassigned meetings</string>
+
+    <string name="profile">My profile</string>
+
+    <string name="meetingsByDate">Meetings by date</string>
+    <string name="allottedBDM">Assigned BDM meetings</string>
+    <string name="allStaff">All staff</string>
+    <string name="signOut">Sign out</string>
+    <string name="meetingDetails">MEETING DETAILS</string>
+
+
+    // Lead details
+
+    <string name="lead_org">Lead Business Name</string>
+    <string name="lead_name">Name of lead</string>
+
+    <string name="lead_email">Email of lead</string>
+    <string name="lead_phone">Phone of lead</string>
+    <string name="lead_org_address">Business address</string>
+    <string name="meetingDate">Meeting date</string>
+
+    <string name="meetingTime">Meeting time</string>
+    <string name="servicesOffered">SERVICES PURCHASED</string>
+
+    <string name="services">Services</string>
+    <string name="leadCreatedBy">Business Development Executive details</string>
+
+    <string name="bde_name">BDE name</string>
+
+    <string name="bde_email">BDE email</string>
+    <string name="bde_phone">BDE phone</string>
+    <string name="assignedBDM">Assigned BDM</string>
+
+    <string name="bdm_name">BDM name</string>
+    <string name="payment_details">Payment details</string>
+
+    <string name="mode">Mode:</string>
+
+    <string name="payment_mode">Payment mode</string>
+    <string name="totalAmount">Total amount</string>
+    <string name="paidAmount">Paid amount</string>
+    <string name="remainingAmount">Remaining amount</string>
+    <string name="amount">9999</string>
     <string-array name="posts">
         <item>Select your team</item>
         <item>Admin</item>
@@ -51,11 +94,6 @@
         <item>Business Development Manager</item>
         <item>IT Team</item>
     </string-array>
-
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
 
 
 </resources>

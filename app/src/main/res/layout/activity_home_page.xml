@@ -17,24 +17,39 @@
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+        <ImageView
+            android:layout_width="?attr/actionBarSize"
+            android:layout_height="?attr/actionBarSize"
+            android:src="@drawable/logo_white">
+
+        </ImageView>
+
+
     </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:text="@string/noBDMLeads"
+        android:layout_below="@id/homepage_toolbar"
+        android:fontFamily="@font/ambit_bold"
+        android:id="@+id/head">
+
+    </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/homepage_toolbar"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:id="@+id/non_bdm_meetings_recyclerview"
+        android:layout_below="@id/head"
         android:layout_alignParentBottom="true">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/sign_out"
-        android:background="@drawable/btn_bg">
-    </Button>
 
 
 </RelativeLayout>
