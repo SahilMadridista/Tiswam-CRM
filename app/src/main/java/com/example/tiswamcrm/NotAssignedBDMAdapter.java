@@ -39,7 +39,7 @@ public class NotAssignedBDMAdapter extends FirestoreRecyclerAdapter<Lead,NotAssi
       holder.itemView.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View view) {
-            context.startActivity(new Intent(context,LeadDetailsActivity.class));
+            context.startActivity(new Intent(context,LeadDetailsWithOutBDMActivity.class));
          }
       });
 
