@@ -151,8 +151,6 @@ public class LeadDetailsWithOutBDMActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private void loadBDM() {

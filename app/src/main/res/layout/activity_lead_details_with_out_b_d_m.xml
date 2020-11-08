@@ -17,7 +17,6 @@
         android:textSize="17sp"
         android:gravity="center"
         android:background="@color/colorPrimaryDark"
-        android:layout_centerHorizontal="true"
         android:textStyle="bold">
 
     </TextView>

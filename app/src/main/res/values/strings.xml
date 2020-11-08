@@ -87,6 +87,8 @@
     <string name="paidAmount">Paid amount</string>
     <string name="remainingAmount">Remaining amount</string>
     <string name="amount">9999</string>
+    <string name="assign_bdm">Assign BDM</string>
+
     <string-array name="posts">
         <item>Select your team</item>
         <item>Admin</item>
@@ -99,7 +101,17 @@
         <item tools:ignore="TypographyEllipsis">Loading...</item>
     </string-array>
 
-    <string name="assign_bdm">Assign BDM</string>
+    // Staff activity
+
+    <string name="staff">STAFF MEMBERS</string>
+
+    <string-array name="team_name">
+        <item>All</item>
+        <item>Business Development Executive</item>
+        <item>Business Development Manager</item>
+        <item>IT Team</item>
+    </string-array>
+
 
 
 </resources>

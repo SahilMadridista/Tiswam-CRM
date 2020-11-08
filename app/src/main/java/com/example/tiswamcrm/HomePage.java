@@ -100,7 +100,7 @@ public class HomePage extends AppCompatActivity {
 
             // Add Code here
 
-            Toast.makeText(getApplicationContext(),"Staff button clicked",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(),StaffActivity.class));
             break;
 
          case R.id.sign_out:
