@@ -9,6 +9,10 @@
 
     </item>
 
+    <item android:id="@+id/done_deals" android:title="@string/done_deals">
+
+    </item>
+
     <item android:id="@+id/staff" android:title="@string/allStaff">
 
     </item>

@@ -19,8 +19,6 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
-import java.util.Objects;
-
 public class HomePage extends AppCompatActivity {
 
    private FirebaseAuth firebaseAuth;
@@ -81,11 +79,11 @@ public class HomePage extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Profile button clicked",Toast.LENGTH_SHORT).show();
             break;
 
-         case R.id.meetingsByDate:
+         case R.id.done_deals:
 
             // Add code here
 
-            Toast.makeText(getApplicationContext(),"Meetings by date button clicked",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Done deals button clicked",Toast.LENGTH_SHORT).show();
             break;
 
 
