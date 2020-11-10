@@ -9,13 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AssignedMeetingsActivity"></activity>
-        <activity android:name=".DoneDealsDecription" />
+        <activity android:name=".AssignedMeetingsActivity"
+            android:parentActivityName=".HomePage"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DoneDealsDecription"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".DoneDealsActivity"/>
         <activity
             android:name=".DoneDealsActivity"
             android:parentActivityName=".HomePage"
             android:screenOrientation="portrait" />
-        <activity android:name=".AssignedMeetingsDescription" />
+        <activity android:name=".AssignedMeetingsDescription"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".AssignedMeetingsActivity"/>
         <activity android:name=".StaffDetails" />
         <activity
             android:name=".StaffActivity"
