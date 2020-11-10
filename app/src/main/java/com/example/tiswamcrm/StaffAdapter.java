@@ -1,6 +1,7 @@
 package com.example.tiswamcrm;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -49,6 +51,34 @@ public class StaffAdapter extends FirestoreRecyclerAdapter<Staff,StaffAdapter.St
                     }
                  });
       }
+
+      holder.itemView.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+
+            DocumentSnapshot snapshot = getSnapshots().getSnapshot(holder.getAdapterPosition());
+
+            String id = snapshot.getId();
+            String name = snapshot.getString("name");
+            String email = snapshot.getString("email");
+            String phone = snapshot.getString("phone");
+            String team = snapshot.getString("team");
+            String url = snapshot.getString("url");
+
+            Intent i = new Intent(context,StaffDetails.class);
+
+            i.putExtra("name",name);
+            i.putExtra("email",email);
+            i.putExtra("phone",phone);
+            i.putExtra("team",team);
+            i.putExtra("id",id);
+            i.putExtra("url",url);
+
+            context.startActivity(i);
+
+
+         }
+      });
 
    }
 

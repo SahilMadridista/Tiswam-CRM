@@ -5,10 +5,6 @@
 
     </item>
 
-    <item android:id="@+id/meetingsByDate" android:title="@string/meetingsByDate">
-
-    </item>
-
     <item android:id="@+id/assignedMeetings" android:title="@string/allottedBDM">
 
     </item>

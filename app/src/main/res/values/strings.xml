@@ -91,12 +91,17 @@
 
     <string name="staff">Staff members</string>
 
-    <string name="staff_member_name">Staff member name</string>
-
     // Staff activity
 
+    <string name="staff_member_name">Staff member name</string>
     <string name="staff_member_team">Staff member team</string>
 
+    <string name="staff_email">Staff member email</string>
+
+    <string name="staff_phone">Staff member phone</string>
+    <string name="call">Call employee</string>
+
+    <string name="email">Email employee</string>
     <string-array name="posts">
         <item>Select your team</item>
         <item>Admin</item>

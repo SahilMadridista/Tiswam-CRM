@@ -1,9 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".StaffDetails">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/staff_details_image"
+            android:scaleType="centerCrop"
+            android:transitionName="staffImage">
+
+        </ImageView>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:id="@+id/staff_name"
+                android:text="@string/staff_member_name"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_centerHorizontal="true">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_below="@id/staff_name"
+                android:id="@+id/staff_team"
+                android:text="@string/staff_member_team"
+                android:padding="5dp"
+                android:layout_centerHorizontal="true">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/staff_team"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/bde_email_icon"
+                        android:src="@drawable/ic_email"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:id="@+id/staff_email_text"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/dark_grey"
+                        android:text="@string/staff_email"
+                        android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@id/bde_email_icon">
+
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/bde_phone_icon"
+                        android:layout_below="@id/bde_email_icon"
+                        android:src="@drawable/ic_phone_color"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="10dp">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:id="@+id/staff_phone_text"
+                        android:layout_below="@id/staff_email_text"
+                        android:layout_marginStart="10dp"
+                        android:textColor="@color/dark_grey"
+                        android:text="@string/staff_phone"
+                        android:layout_marginTop="10dp"
+                        android:layout_toEndOf="@id/bde_phone_icon">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/call_green"
+            android:id="@+id/call_layout"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_phone"
+                android:layout_centerInParent="true">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/email_red"
+            android:id="@+id/email_layout"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_email_white"
+                android:layout_centerInParent="true">
+
+            </ImageView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
