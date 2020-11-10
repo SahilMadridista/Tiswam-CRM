@@ -6,8 +6,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AssignedMeetings">
+    tools:context=".AssignedMeetingsDescription">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/assigned_meetings_toolbar">
 
+    </androidx.appcompat.widget.Toolbar>
 
 </RelativeLayout>

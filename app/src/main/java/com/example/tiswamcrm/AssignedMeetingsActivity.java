@@ -1,9 +1,10 @@
 package com.example.tiswamcrm;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-public class AssignedMeetings extends AppCompatActivity {
+public class AssignedMeetingsActivity extends AppCompatActivity {
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -11,5 +12,7 @@ public class AssignedMeetings extends AppCompatActivity {
       setContentView(R.layout.activity_assigned_meetings);
 
 
+
    }
+
 }

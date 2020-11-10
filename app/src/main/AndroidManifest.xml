@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DoneDealsActivity"></activity>
-        <activity android:name=".AssignedMeetings" />
+        <activity android:name=".AssignedMeetingsActivity"></activity>
+        <activity android:name=".DoneDealsDecription" />
+        <activity
+            android:name=".DoneDealsActivity"
+            android:parentActivityName=".HomePage"
+            android:screenOrientation="portrait" />
+        <activity android:name=".AssignedMeetingsDescription" />
         <activity android:name=".StaffDetails" />
         <activity
             android:name=".StaffActivity"
@@ -30,11 +35,11 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
 </manifest>

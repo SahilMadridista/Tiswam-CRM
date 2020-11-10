@@ -83,7 +83,7 @@ public class HomePage extends AppCompatActivity {
 
             // Add code here
 
-            Toast.makeText(getApplicationContext(),"Done deals button clicked",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(),DoneDealsActivity.class));
             break;
 
 
@@ -91,7 +91,7 @@ public class HomePage extends AppCompatActivity {
 
             // Add Code here
 
-            Toast.makeText(getApplicationContext(),"Assigned meetings button clicked",Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(), AssignedMeetingsActivity.class));
             break;
 
          case R.id.staff:

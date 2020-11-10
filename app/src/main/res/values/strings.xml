@@ -103,6 +103,8 @@
     <string name="call">Call employee</string>
 
     <string name="email">Email employee</string>
+    <string name="selectDate">Select date</string>
+
     <string-array name="posts">
         <item>Select your team</item>
         <item>Admin</item>
@@ -110,16 +112,20 @@
         <item>Business Development Manager</item>
         <item>IT Team</item>
     </string-array>
-
     <string-array name="loading">
         <item tools:ignore="TypographyEllipsis">Loading...</item>
     </string-array>
+
+    // Done deals
+
     <string-array name="team_name">
         <item>All</item>
         <item>Business Development Executive</item>
         <item>Business Development Manager</item>
         <item>IT Team</item>
     </string-array>
+
+    <string name="clear">Clear date filter</string>
 
 
 </resources>
