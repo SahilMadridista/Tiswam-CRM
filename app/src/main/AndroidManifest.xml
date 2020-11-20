@@ -4,24 +4,28 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/admin_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/admin_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AssignedMeetingsActivity"
+        <activity android:name=".Profile.ProfileActivity"></activity>
+        <activity
+            android:name=".AssignedMeetingsActivity"
             android:parentActivityName=".HomePage"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".DoneDealsDecription"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".DoneDealsActivity"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DoneDealsDecription"
+            android:parentActivityName=".DoneDealsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".DoneDealsActivity"
             android:parentActivityName=".HomePage"
             android:screenOrientation="portrait" />
-        <activity android:name=".AssignedMeetingsDescription"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".AssignedMeetingsActivity"/>
+        <activity
+            android:name=".AssignedMeetingsDescription"
+            android:parentActivityName=".AssignedMeetingsActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".StaffDetails" />
         <activity
             android:name=".StaffActivity"
@@ -41,11 +45,11 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
 </manifest>

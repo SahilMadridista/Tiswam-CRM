@@ -1,5 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">TISWAM CRM</string>
+
+    <string name="app_name">Tech-Mark Admin</string>
+
     <string name="next">Next</string>
 
     <string name="tech_mark">TECH MARK</string>
@@ -105,6 +107,7 @@
     <string name="email">Email employee</string>
     <string name="selectDate">Select date</string>
 
+    <string name="clear">Clear date filter</string>
     <string-array name="posts">
         <item>Select your team</item>
         <item>Admin</item>
@@ -112,11 +115,12 @@
         <item>Business Development Manager</item>
         <item>IT Team</item>
     </string-array>
+
+    // Done deals
+
     <string-array name="loading">
         <item tools:ignore="TypographyEllipsis">Loading...</item>
     </string-array>
-
-    // Done deals
 
     <string-array name="team_name">
         <item>All</item>
@@ -124,8 +128,6 @@
         <item>Business Development Manager</item>
         <item>IT Team</item>
     </string-array>
-
-    <string name="clear">Clear date filter</string>
 
 
 </resources>
